@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Qwitcher+Grypen:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gilroy', sans-serif;
+    color: #fff;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* =================================================================================================================================== */
+/*                                                        NAV BAR                                                                      */
+/* =================================================================================================================================== */
+.nav{
+    position: fixed;
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 99;
+}
+.nav h4{
+    font-size: 1.1vw;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.nav .logo{
+    font-size: 2.5vw;
+    font-weight:600;
+}
+.nav-content{
+    width: 100%;
+    height:100% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+}
+.circle{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 2%;
+}
+video{
+    object-fit: cover;
+     width: 100%;
+     height: 100%;
+     position: fixed;
+     z-index: -1;
+ }
+
+ .cursor{
+    height: 25px;
+    width: 25px;
+    background-color: #a8c300;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9999;
+ }
+ .cursor-blur{
+    height: 400px;
+    width: 400px;
+    background-color: #b5c73f38;
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(70px);
+    z-index: 9;
+    transition: background-color ease .5s;
+ }
+/* =================================================================================================================================== */
+/*                                                        Home                                                                         */
+/* =================================================================================================================================== */
+
+.main{
+    position: relative;
+    background-color: #111111a1;
+    overflow: hidden;
+}
+.home{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 10;  
+}
+.home h1{
+    font-size: 8vw;
+    font-weight: 500;
+    padding-top: 15vw;
+    margin-left: 7vw;
+}
+/* .home h1::before{
+    content: "Abhishek Garg";
+    position: absolute;
+    color: black;
+    margin-top: -2px;
+    margin-left: -2px;
+    -webkit-text-stroke: 2px #a8c300 ;
+    z-index: -1;
+} */
+
+.home h2{
+    display: flex;
+    align-items: baseline;
+    font-size: 8vw;
+    font-weight: 500;
+    margin-left: 15vw;
+}
+/* .home h2::before{
+    content: "Software Engineer.";
+    position: absolute;
+    color: black;
+    margin-top: -2px;
+    margin-left: 136px;
+    -webkit-text-stroke: 2px #a8c300 ;
+    z-index: -1;
+} */
+.home h2 span{
+    font-size: 9vw;
+    color: #a8c300;
+    margin-right: 2vw;
+    font-family: 'Megrim', cursive;
+    font-family: 'Qwitcher Grypen', cursive;
+}
+
+.icon{
+    display: inline-block;
+    padding: 120px;
+    border: 1px solid #a8c300;
+    border-radius: 50%;
+    transform: translateX(-30%);
+}
+.icon img{
+    height: 50px;
+    width: 50px;
+}
+/* =================================================================================================================================== */
+/*                                                        About                                                                        */
+/* =================================================================================================================================== */
+.about{
+    min-height: 100vh;
+    width: 100%;
+    /* position: relative;
+    z-index: 10; */
+}
+.about-content{
+    margin-top: 5%;
+    display: flex;
+    padding: 0 40px;
+    justify-content: space-between;
+    
+}
+.about-in{
+    width: 40%;
+    margin-top: 7%;
+    margin-left: 5%;
+    position: relative;
+    z-index: 10;
+}
+.about-in h2{
+    font-size: 1.6vw;
+    font-weight: 300;
+    opacity: .3;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.about-in p{
+    font-size: 1.6vw;
+    line-height: 30px;
+}
+.about-in p a{
+    font-size: 3.3vw;
+    color: #a8c300;
+    margin-right: 2vw;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-family: 'Megrim', cursive;
+    font-family: 'Qwitcher Grypen', cursive;
+    transition: all .5s ease;
+}
+.img-container{
+    position: relative;
+    margin-right: 10%;
+}
+.img-container img{
+    background-size: cover;
+    height: 450px;
+    position: absolute;
+    z-index: 10;
+    width: 350px;
+    border-radius: 30px;
+}
+.img-container img:nth-child(1){
+    background-image: url(20191213_183343~1.jpg); 
+    transform: translate(-100%, 0%);
+}
+.img-container img:nth-child(2){
+    height: 50%;
+    z-index: 9;
+    rotate: 90deg;
+    transform: translate(0%, 80%);
+}
+
+.scroller{
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 10;
+}
+.scroller::-webkit-scrollbar{
+    display: none;
+}
+.scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.scroller h4{
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 7vw;
+    font-weight: 700;
+    margin-right: 80px;
+    transition: all 0.5s linear;
+    -webkit-text-stroke: 1px #a8c300;
+    color: transparent;
+}
+.scroller h4:hover{
+    color: #a8c300;
+    animation-duration: 0s;
+}
+@keyframes scroll {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+    
+}
+
+/* =================================================================================================================================== */
+/*                                                        Skill                                                                        */
+/* =================================================================================================================================== */
+.skill{
+    width: 100%;
+    min-height: 100vh;
+}
+.skill .heading-skill h2{
+    color: #111;
+    font-size: 4vw;
+    text-transform: uppercase;
+}
+.skill .heading-skill{
+    /* text-align: end; */
+    margin-left: 10%;
+    margin-top: -10vw;
+    position: relative;
+    z-index: 10;
+}
+
+.skill .heading-skill span{
+    color: #a8c300;
+    font-family: 'Megrim', cursive;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 8vw;
+}
+
+.skill-container{
+    display: flex;
+    margin-top: 7%;
+    align-items: center;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+}
+.skill-container h2{
+    position: relative;
+    z-index: 10;
+    color: #111;
+    font-size: 2vw;
+    font-weight: 100;
+}
+.head-skill{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.skill .hr{
+    width: 70%;
+    margin-left: 10%;
+    /* transform: translate(14vw, 10vw); */
+    border-bottom: 2px solid #a8c300;
+}
+.icon2{
+    display: inline-block;
+    border: 1px solid #a8c300;
+    transform: translate(4vw,0);
+    padding: 100px;
+    border-radius: 50%;
+    color: #111;
+}
+.icon2>img{
+    height: 50px;
+    width: 50px;
+}
+
+.head-skill>img{
+    height: 300px;
+    width: 200px;
+}
+.skill-content{
+    width: 100%;
+    background:linear-gradient(to left , #213500,#c6ff29);
+    height: 20vh;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    
+    position: relative;
+    z-index: 10;
+    border-radius: 150px;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
+}
+.skill-content h3{
+    text-align: center;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 4vw;
+    font-weight: 600;
+    letter-spacing: 30px;
+    padding-top: 30px;
+    color: #111;
+    text-transform: uppercase;
+    font-family: 'Megrim', cursive;
+    /* font-family: 'Qwitcher Grypen', cursive; */
+}
+/* =================================================================================================================================== */
+/*                                                        Work                                                                        */
+/* =================================================================================================================================== */
+
+.work{
+    min-height: 100vh;
+    width: 100%;
+}
+.work-heading{
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    /* width: 150px; */
+    /* height: 200px;
+    align-items: end; */
+}.work-heading img{
+    height: 200px;
+    /* width: 400px; */
+    rotate: 180deg;
+}
+.heading{
+    display: flex;
+    align-items: baseline;
+}
+.heading h4{
+    color: #111;
+    font-size: 9vw;
+    font-weight: 400;
+}
+.heading h4>span{
+    color: #a8c300;
+    font-size: 17vw;
+    font-family: 'Megrim', cursive;
+    font-family: 'Qwitcher Grypen', cursive;
+}
+.heading>span{
+    color: #111;
+    padding: 0 30px;
+}
+.card-container .row{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    justify-content: space-around;
+    padding: 0 30px;
+    /* background-color: red; */
+}
+.card-container .row1{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    justify-content: space-around;
+    padding: 0 30px;
+    /* background-color: red; */
+}
+.card{
+    position: relative;
+    z-index: 10;
+    border-radius: 10px;
+    padding: 0 30px;
+}
+.card .title{
+    margin-top: 30%;
+    font-size: 2vw;
+    white-space: nowrap;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+.card .description{
+    font-size: 1.5vw;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.card .where{
+    margin-bottom: 10px;
+    font-size: 1.6vw;
+    font-weight: 400;
+    
+}
+.card .date{
+    margin-bottom: 10px;
+    font-size: 1vw;
+    font-weight: 200;
+}
+
+.row .card:nth-child(1){
+    width: 40%;
+    height: 90%;
+    background-color: blue;
+    margin-top: 10%;
+}
+.row .card:nth-child(2){
+    width: 30%;
+    height: 70%;
+    background-color: green;
+}
+.row1 .card:nth-child(1){
+    width: 35%;
+    height: 80%;
+    background-color: green;
+    margin-top: 15%;
+}
+.row1 .card:nth-child(2){
+    width: 35%;
+    height: 80%;
+    background-color: blue;
+    margin-top: -5%;
+}
+/* =================================================================================================================================== */
+/*                                                        CERTIFICATES                                                                        */
+/* =================================================================================================================================== */
+
+.certificates{
+    min-height: 100vh;
+    width: 100%;
+}
+/* =================================================================================================================================== */
+/*                                                        Contact                                                                        */
+/* =================================================================================================================================== */
+
+.contact{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    
+    /* margin: 10%; */
+    /* position: fixed; */
+}
+
+.wrapper{
+    height: 90%;
+    width: 90%;
+    background-color: #1111119a;
+    border-radius: 60px;
+    margin-left: 5%;
+    margin-top: 5%;z-index: 10;
+    position: relative;
+}
+.content-c{
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+}
+.content-c>h2{
+    text-align: center;
+    font-size: 8vw;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 20px 0px;
+}
+
+.content-c .content{
+    display: flex;
+}
+.content>div{
+    width: 70%;
+}
+.content .form{
+    width: 30%;
+    height: 76vh;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #363636bd;
+    margin-top: 20px;
+}
+.form label{
+    padding: 5px 10px;
+}
+.form input{
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    /* height: 60px; */
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.form textarea{
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    /* height: 120px;/ */
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.form button{
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+}
