@@ -68,7 +68,7 @@ function scrollTimeLines(){
         scrollTrigger:{
             trigger:".nav",
             scroller:"body",
-            markers:true,
+            // markers:true,
             start:"top -11%",
             end:"top -10%",
             scrub:1
@@ -78,7 +78,7 @@ function scrollTimeLines(){
         scrollTrigger:{
             trigger:".home",
             scroller:"body",
-            markers:true,
+            // markers:true,
             start:"top -8%",
             end:"top -10%",
             scrub:3
