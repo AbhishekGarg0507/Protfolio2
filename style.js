@@ -1,16 +1,5 @@
-gsap.to(".nav",{
-    backgroundColor:"#111",
-    height:"50px",
-    duration:.5,
-    scrollTrigger:{
-        trigger:".nav",
-        scroller:"body",
-        // markers:true,
-        start:"top -11%",
-        end:"top -10%",
-        scrub:1
-    }
-})
+
+navAnimation();
 cursor();
 animateHomeColor();
 // SkillColor();
@@ -24,8 +13,8 @@ var blur = document.querySelector(".cursor-blur");
 document.addEventListener("mousemove",function(dets){
     crsr.style.left = dets.x+20 + "px";
     crsr.style.top = dets.y + "px";
-    blur.style.left = dets.x-200+"px";
-    blur.style.top = dets.y-200+"px";
+    blur.style.left = dets.x-150+"px";
+    blur.style.top = dets.y-150+"px";
 })
 
 var allh4 = document.querySelectorAll(".nav h4 , .logo , .circle, .about-in p a, .skill-container h2, a, .form .button, .card");
@@ -57,19 +46,34 @@ allh4.forEach(function(elem){
     })
 })
 }
-
+function navAnimation(){
+    gsap.to(".nav",{
+        backgroundColor:"#111",
+        height:"50px",
+        duration:.5,
+        scrollTrigger:{
+            trigger:".nav",
+            scroller:"body",
+            // markers:true,
+            start:"top -11%",
+            end:"top -10%",
+            scrub:1
+        }
+    })
+}
 function animateHomeColor(){
     var tl = gsap.timeline({
         scrollTrigger:{
             trigger:".home",
             scroller:"body",
+            markers:true,
             start:"top 20%",
-            end:"top -100%",
+            end:"top -10%",
             scrub:3 
         }
     })
     tl.to(".main",{
-        backgroundColor: "#000"
+        backgroundColor: "#111"
     })
     }
 function animateHome(){
@@ -119,6 +123,7 @@ function animateAbout(){
         y:60,
         rotate:"10deg",
         opacity:0,
+        delay:-2,
         duration:1,
         onComplete:function(){
             animateSkill();

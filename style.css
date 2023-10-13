@@ -77,16 +77,17 @@ video{
     border-radius: 50%;
     position: fixed;
     z-index: 9999;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
  }
  .cursor-blur{
-    height: 400px;
-    width: 400px;
-    background-color: #b5c73f50;
-    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    background-color: #b5c73f30;
+    border-radius: 40%;
     position: fixed;
-    filter: blur(70px);
+    filter: blur(50px);
     z-index: 9;
-    transition: background-color ease .5s;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
  }
 /* =================================================================================================================================== */
 /*                                                        Home                                                                         */
@@ -94,7 +95,6 @@ video{
 
 .main{
     position: relative;
-    background-color: #111111a1;
     overflow: hidden;
 }
 .home{
