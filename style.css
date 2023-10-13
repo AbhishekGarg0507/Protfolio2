@@ -77,7 +77,7 @@ video{
     border-radius: 50%;
     position: fixed;
     z-index: 9999;
-    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .05s;
  }
  .cursor-blur{
     height: 300px;
@@ -87,7 +87,7 @@ video{
     position: fixed;
     filter: blur(50px);
     z-index: 9;
-    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .05s;
  }
 /* =================================================================================================================================== */
 /*                                                        Home                                                                         */

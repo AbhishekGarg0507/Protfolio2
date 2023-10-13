@@ -66,7 +66,7 @@ function animateHomeColor(){
         scrollTrigger:{
             trigger:".home",
             scroller:"body",
-            markers:true,
+            // markers:true,
             start:"top 20%",
             end:"top -10%",
             scrub:3 
@@ -194,7 +194,7 @@ function animatecards(){
         scrollTrigger:{
             trigger:".row1 .card",
             scroller:"body",
-            markers:true,
+            // markers:true,
             start:"top 100%",
             end:"top 85%",
             scrub:2
