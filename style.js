@@ -1,6 +1,22 @@
-
+gsap.to(".nav",{
+    backgroundColor:"#111",
+    height:"50px",
+    duration:.5,
+    scrollTrigger:{
+        trigger:".nav",
+        scroller:"body",
+        // markers:true,
+        start:"top -11%",
+        end:"top -10%",
+        scrub:1
+    }
+})
 cursor();
-scrollTimeLines();
+animateHomeColor();
+// SkillColor();
+// certiColor();
+animateHome();
+
 // ...............................................................................................
 function cursor(){
     var crsr = document.querySelector(".cursor");
@@ -12,7 +28,7 @@ document.addEventListener("mousemove",function(dets){
     blur.style.top = dets.y-200+"px";
 })
 
-var allh4 = document.querySelectorAll(".nav h4 , .logo , .circle, .about-in p a, .skill-container h2, a, .form .button");
+var allh4 = document.querySelectorAll(".nav h4 , .logo , .circle, .about-in p a, .skill-container h2, a, .form .button, .card");
 allh4.forEach(function(elem){
     elem.addEventListener("mouseenter",function(dets){
         crsr.style.scale =2;
@@ -25,55 +41,39 @@ allh4.forEach(function(elem){
         crsr.style.backgroundColor = "#a8c300";
     })
 })
-var allh4 = document.querySelectorAll(".skill-container h2, .skill-content ");
-allh4.forEach(function(elem){
-    elem.addEventListener("mouseenter",function(dets){
-        crsr.style.scale =2;
-        crsr.style.border = "1px solid #a8c300";
-        crsr.style.backgroundColor = "transparent";
-        blur.style.backgroundColor = "#b5c73f"
-    })
-    elem.addEventListener("mouseleave",function(dets){
-        crsr.style.scale = 1;
-        crsr.style.border = "0px solid #a8c300";
-        crsr.style.backgroundColor = "#a8c300";
-        blur.style.backgroundColor = "#b5c73f90"
-    })
-})
 var allh4 = document.querySelectorAll(".card");
 allh4.forEach(function(elem){
     elem.addEventListener("mouseenter",function(dets){
         crsr.style.scale =2;
         crsr.style.border = "1px solid #111";
         crsr.style.backgroundColor = "transparent";
-        blur.style.backgroundColor = "#b5c73f";
         document.querySelector(".main").style.backgroundColor = "#ecff7298";
     })
     elem.addEventListener("mouseleave",function(dets){
         crsr.style.scale = 1;
         crsr.style.border = "0px solid #a8c300";
         crsr.style.backgroundColor = "#a8c300";
-        blur.style.backgroundColor = "#b5c73f50"
-        document.querySelector(".main").style.backgroundColor = "#fff";
+        document.querySelector(".main").style.backgroundColor = "#111";
     })
 })
 }
 
-
-function scrollTimeLines(){
-    gsap.to(".nav",{
-        backgroundColor:"#111",
-        height:"50px",
-        duration:.5,
+function animateHomeColor(){
+    var tl = gsap.timeline({
         scrollTrigger:{
-            trigger:".nav",
+            trigger:".home",
             scroller:"body",
-            // markers:true,
-            start:"top -11%",
-            end:"top -10%",
-            scrub:1
+            start:"top 20%",
+            end:"top -100%",
+            scrub:3 
         }
-    }) 
+    })
+    tl.to(".main",{
+        backgroundColor: "#000"
+    })
+    }
+function animateHome(){
+     
     var tl = gsap.timeline({
         scrollTrigger:{
             trigger:".home",
@@ -91,37 +91,116 @@ function scrollTimeLines(){
         x:90,
     },"a")
     .to(".icon",{
-        padding:"50px"
+        padding:"50px",
+        onComplete:function(){
+            animateAbout();
+        }
     },"a")
     
-    
-    var tl2 = gsap.timeline({
+}
+function animateAbout(){
+    tl = gsap.timeline({
         scrollTrigger:{
-            trigger:".home",
+            trigger:".about",
             scroller:"body",
+            // markers:true,
             start:"top 20%",
-            end:"top -100%",
-            scrub:3  
+            end:"top 30%",
+            scrub:5
         }
     })
-    tl2.to(".main",{
-        backgroundColor: "#000",
-        
+    tl.from(".about-in p",{
+        y:50,
+        opacity:0,
+        duration:2,
+        stagger:1 
+    },"b")
+    .from(".img-container .profileImage",{
+        y:60,
+        rotate:"10deg",
+        opacity:0,
+        duration:1,
+        onComplete:function(){
+            animateSkill();
+        }
     })
-    var tl3 = gsap.timeline({
+}
+
+function animateSkill(){
+    tl = gsap.timeline({
         scrollTrigger:{
             trigger:".skill",
             scroller:"body",
             // markers:true,
-            start:"top 70%",
-            end:"top 10%",
-            scrub:3  
+            start:"top 60%",
+            end:"top 0%",
+            scrub:5
         }
     })
-    tl3.to(".main",{
-        backgroundColor: "#fff",
+    tl
+    .from(".icon2",{
+        transform:"translateX(0)",
+        padding:"0px",
+        duration:1,
+        opacity:0
     })
-    var tl4 = gsap.timeline({
+    .from(".skill .hr",{
+        width:"0%",
+        duration:2,
+        opacity:0
+        // delay:2
+    })
+    .from(".heading-skill",{
+        opacity:0,
+        // delay:3,
+        y:100,
+        duration:2
+    })
+    .from(".skill-container h2",{
+        y:100,
+        opacity:0,
+        // delay:1,
+        duration:1,
+        stagger:.2,
+        onComplete:function(){
+            animatecards();
+        }
+    })
+
+}
+function animatecards(){
+    gsap.from(".row .card",{
+        width:0,
+        scale:0,
+        opacity:0,
+        scrollTrigger:{
+            trigger:".row",
+            scroller:"body",
+            start:"top 40%",
+            end:"top 55%",
+            scrub:2
+
+        }
+    })
+    gsap.from(".row1 .card",{
+        width:0,
+        scale:0,
+        opacity:0,
+        scrollTrigger:{
+            trigger:".row1 .card",
+            scroller:"body",
+            markers:true,
+            start:"top 100%",
+            end:"top 85%",
+            scrub:2
+
+        }
+    })
+
+    }
+function certiColor(){
+    gsap.to(".main",{
+        backgroundColor: "#000",
         scrollTrigger:{
             trigger:".certificates",
             scroller:"body",
@@ -131,8 +210,17 @@ function scrollTimeLines(){
             scrub:3  
         }
     })
-    tl4.to(".main",{
-        backgroundColor: "#000",
+}
+function SkillColor(){
+    gsap.to(".main",{
+        backgroundColor: "#fff",
+        scrollTrigger:{
+            trigger:".skill",
+            scroller:"body",
+            // markers:true,
+            start:"top 70%",
+            end:"top 10%",
+            scrub:3
+        }
     })
-    
 }
